@@ -1,10 +1,13 @@
 [package]
 name = "jurl"
-version = "0.1.0"
+version = "1.0.0"
 edition = "2021"
+authors = ["jurl contributors"]
+description = "A curl-like tool with JavaScript rendering capabilities"
+license = "MIT"
 
 [dependencies]
-headless_chrome = { version = "1", features = ["fetch"] }
+headless_chrome = { version = "1.0", features = ["fetch"] }
 tokio = { version = "1", features = ["full"] }
 clap = { version = "4", features = ["derive"] }
 serde = { version = "1", features = ["derive"] }

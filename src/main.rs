@@ -160,7 +160,7 @@ async fn main() -> Result<()> {
         "POST" => {
             // For POST requests, we navigate first then execute JS to submit data
             tab.navigate_to(&args.url)?;
-            
+
             if let Some(data) = &args.data {
                 if args.verbose {
                     eprintln!("{}", format!("* Sending POST data: {}", data).cyan());
@@ -218,7 +218,7 @@ async fn main() -> Result<()> {
             // Try to extract JSON from the page
             let result = tab.evaluate("document.body.innerText", false)?;
             let text = result.value.unwrap().as_str().unwrap_or("").to_string();
-            
+
             if let Ok(json) = serde_json::from_str::<Value>(&text) {
                 serde_json::to_string_pretty(&json)?
             } else {
